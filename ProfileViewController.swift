@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
         var Prescription = ""
         var ref: DatabaseReference?
+        var specialNotes = ""
         var Categories = ["AM/PM", "Frequency", "Prescription Amount", "Starting Time"]
         var values: [String] = []
         override func viewDidLoad() {
@@ -25,6 +26,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.values.append(value?["Frequency"] as? String ?? "")
                 self.values.append("\(value?["Prescription Amount"] as? Int ?? 0)")
                 self.values.append(value?["Starting_Time"] as? String ?? "")
+                self.specialNotes = value?["Special_Notes"] as? String ?? ""
+                                                                                                                   
             })
             
             
